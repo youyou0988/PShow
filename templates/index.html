@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block main %}
+{% if not is_login %}<a href="/login/">Login</a> or <a href="/register/">Register</a><br />{% endif %}
+{% if is_login %}{{ student.name }}<a href="/logout/">Logout</a><br />{% endif %}
+<a href="/show/">Alogrithm Showing</a><br />
+<a href="/check/">Check My Alogrithm</a>
+{% endblock %}
