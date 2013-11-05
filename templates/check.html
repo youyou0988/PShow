@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 
 {% block main %}
-	{% if not is_login %}<a href="/login/">Login</a> or <a href="/register/">Register</a><br />{% endif %}
-	{% if is_login %}{{ student.name }},{{ student.score }}<a href="/logout/">Logout</a><br />{% endif %}
-	You can add your new type algorithm:
+{% load bootstrap %}
+{% load bootstrap_toolkit %}
+	<h3>You can add your new type algorithm:</h3>
 	<form enctype="multipart/form-data" method="post" action="/add_algorithm/">
 		    {% csrf_token %}
-		    {{ addform.as_table }}
-		    <input type="submit" value="Add">
+		    {{ addform|bootstrap }}
+		    <input type="submit" value="Add" class="btn btn-primary">
 	</form>
 	
-	You have update those alogrithm:<br />
+	<h3>You have update those alogrithm:<br /></h3>
 	{% for a in algorithms %}
 	{{ a.name }}, {{ a.time }}, {{ a.space }} <br />
 	<form enctype="multipart/form-data" method="post" action="/udpate_algorithm/{{ a.index }}/">
 		    {% csrf_token %}
-		    {{ updateform.as_table }}
+		    {{ updateform|bootstrap }}
 		    <input type="submit" value="Update">
 	</form>
 	<br />

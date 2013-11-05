@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 
 {% block main %}
-{% if not is_login %}<a href="/login/">Login</a> or <a href="/register/">Register</a><br />{% endif %}
-{% if is_login %}{{ student.name }}<a href="/logout/">Logout</a><br />{% endif %}
-<a href="/show/">Alogrithm Showing</a><br />
-<a href="/check/">Check My Alogrithm</a>
+
+<div class="jumbotron">
+  <h1>Welcome!</h1>
+  <p>PShow是THU研究生组合数学的一个平台作业，要求该项目能检测一个排列算法的正确性以及其效率、演示四种常见的基本算法，除了上述的基本要求之外，本组同学希望在学生使用体验、助教批改作业、信息统计等几个方面做更多的尝试，这也是PShow项目的由来</p>
+  <p><a class="btn btn-primary btn-lg" role="button">Learn more</a></p>
+</div>
+
 {% endblock %}

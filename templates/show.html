@@ -1,22 +1,22 @@
 {% extends "base.html" %}
 
 {% block main %}
-	{% if not is_login %}<a href="/login/">Login</a> or <a href="/register/">Register</a><br />{% endif %}
-	{% if is_login %}{{ student.name }}<a href="/logout/">Logout</a><br />{% endif %}
-	You can set the length or type for show permutation:<br />
+{% load bootstrap %}
+{% load bootstrap_toolkit %}
+	<h3>You can set the length or type for show permutation:<br /></h3>
 	<form method="post" action="/show/">
 		{% csrf_token %}
-        {{ form.as_table }}
-		<input type="submit" value="Set">
+         {{ form|bootstrap }}
+		<button type="submit" class="btn btn-primary" value="Set">Set</button>
 	</form>
 	
-	This show algorithm page:<br />
+	<h3>This show algorithm page:<br /></h3>
 	<form method='POST' action="/show/action/">
 	{% csrf_token %}
-    {{ piform.permutation }} --- {{ piform.index }}
-    <input type="submit" name="index_p" value="P2Index">
-    <input type="submit" name="permutation_p" value="Index2P">
-    <input type="submit" name="next_p" value="Next">
-    <input type="submit" name="pre_p" value="Previous">
+    {{ piform.permutation|bootstrap }} --- {{ piform.index|bootstrap }}
+    <input type="submit" name="index_p" value="P2Index" class="btn btn-info">
+    <input type="submit" name="permutation_p" value="Index2P" class="btn btn-info">
+    <input type="submit" name="next_p" value="Next" class="btn btn-info">
+    <input type="submit" name="pre_p" value="Previous" class="btn btn-info">
     </form>
 {% endblock %}

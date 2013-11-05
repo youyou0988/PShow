@@ -122,6 +122,8 @@ INSTALLED_APPS = (
     'algorithm',
     'show',
     'check',
+    'bootstrapform',
+    'bootstrap_toolkit',
     # Uncomment the next line to enable the admin:
     # 'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

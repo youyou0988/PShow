@@ -1,8 +1,13 @@
 from django.conf.urls import patterns, include, url
+from os.path import dirname, join
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
+media = join(
+    dirname(dirname(__file__)), 'media'
+)
+
 
 urlpatterns = patterns('',
     # Examples:
@@ -31,4 +36,5 @@ urlpatterns = patterns('',
     
     # for show
     url(r'^show/action/$', 'show.views.action'),
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root':media}),
 )

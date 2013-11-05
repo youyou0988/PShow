@@ -1,9 +1,30 @@
 {% extends "base.html" %}
 
 {% block main %}
-	<form method="post" action="/register/">
+{% load bootstrap %}
+{% load bootstrap_toolkit %}
+<style type="text/css">
+.form-register {
+    background-color: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    margin: 0 auto 20px;
+    max-width: 300px;
+    padding: 19px 29px 29px;
+}
+</style>
+	<form method="post" action="/register/" class="form-register">
 		{% csrf_token %}
-        {{ form.as_table }}
-		<input type="submit" value="Register">
+        
+        {{ form|bootstrap }}
+        <div class="checkbox">
+        <label>
+          <input type="checkbox"> Remember me
+        </label>
+      </div>
+        <div class="form-actions">
+        <button type="submit" class="btn btn-primary" value="Register">Submit</button>
+    </div>
 	</form>
 {% endblock %}
