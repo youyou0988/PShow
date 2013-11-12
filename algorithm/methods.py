@@ -91,7 +91,7 @@ class Dictionary:
 # for test, next = add 2, previous = subtract 2, p2index = add 20, index2p = subtract 20
 # for test permutation length, more n variables base last step test
 class Increase:
-    
+    const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
     # return the [current] permutation's next permutation 
     @staticmethod
     def next(n, current):
@@ -178,7 +178,7 @@ class Increase:
 # for test, next = add 3, previous = subtract 3, p2index = add 30, index2p = subtract 30
 # for test permutation length, more n variables base last step test
 class Decrease:
-    
+    const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
     # return the [current] permutation's next permutation 
     @staticmethod
     def next(n, current):
@@ -266,7 +266,7 @@ class Decrease:
 # for test, next = add 4, previous = subtract 4, p2index = add 40, index2p = subtract 40
 # for test permutation length, more n variables base last step test
 class Switch:
-    
+    const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
     # return the [current] permutation's next permutation 
     @staticmethod
     def next(n, current):
