@@ -6,33 +6,35 @@ from globals.constants import OVERFLOW, ERROR, WARNING
 # for test permutation type, next = add 1, previous = subtract 1, p2index = add 10, index2p = subtract 10
 # for test permutation length, more n variables base last step test 
 class Dictionary:
-    const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
     # return the [current] permutation's next permutation 
     @staticmethod
     def next(n, current):
         #TODO
-        idx,ans = index(n,current)
+        idx,ans = Dictionary.index(n,current)
         if(idx=='fault'):
             return idx,ans
         ans = ans + 1
-        idx,ans = permutation(n,ans)
+        idx,ans = Dictionary.permutation(n,ans)
         return idx,ans
     
     # return the [current] permutation's previous permutation 
     @staticmethod
     def previous(n, current):
         #TODO
-        idx,ans = index(n,current)
+        idx,ans = Dictionary.index(n,current)
         if(idx=='fault'):
             return idx,ans
         ans = ans - 1
-        idx,ans = permutation(n,ans)
+        idx,ans = Dictionary.permutation(n,ans)
         return idx,ans
     
     # return the [current] permutation's index
     @staticmethod
     def index(n, current):
         #TODO
+        const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
+        ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
+        lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         if((n<1)|(n>20)):
             idx = 'fault'
             ans = 'n should between 1 and 20'
@@ -41,8 +43,6 @@ class Dictionary:
             idx = 'fault'
             ans = 'the length not match'
             return idx,ans
-        ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
-        lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         num = range(n)
         ans = 0
         idx = ''
@@ -60,6 +60,11 @@ class Dictionary:
     @staticmethod
     def permutation(n, index):
         #TODO
+        index = int(index)
+        const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
+        ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
+        lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
+        
         if((n<1)|(n>20)):
             idx = 'fault'
             ans = 'n should between 1 and 20'
@@ -67,8 +72,6 @@ class Dictionary:
         if((index<0)|(index>=const[n])):
             idx = 'fault'
             ans = 'index should between 0 and n！-1'
-        ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
-        lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         num = range(n-1,-1,-1)
         res = range(n)
         result = ''
@@ -84,40 +87,43 @@ class Dictionary:
             ls.remove(ls[num[i]])
 	for i in range(0,n-1):
 	    idx = idx + lsn[num[i]]
-        return result
+        return idx,result
     
 # Increase Permutation Method
 # [n] indicate the permutation length
 # for test, next = add 2, previous = subtract 2, p2index = add 20, index2p = subtract 20
 # for test permutation length, more n variables base last step test
 class Increase:
-    const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
     # return the [current] permutation's next permutation 
     @staticmethod
     def next(n, current):
         #TODO
-        idx,ans = index(n,current)
+        idx,ans = Increase.index(n,current)
         if(idx=='fault'):
             return idx,ans
         ans = ans + 1
-        idx,ans = permutation(n,ans)
+        idx,ans = Increase.permutation(n,ans)
         return idx,ans
     
     # return the [current] permutation's previous permutation 
     @staticmethod
     def previous(n, current):
         #TODO
-        idx,ans = index(n,current)
+        idx,ans = Increase.index(n,current)
         if(idx=='fault'):
             return idx,ans
         ans = ans - 1
-        idx,ans = permutation(n,ans)
+        idx,ans = Increase.permutation(n,ans)
         return idx,ans
     
     # return the [current] permutation's index
     @staticmethod
     def index(n, current):
         #TODO
+        ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
+        lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
+        const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
+       
         if((n<1)|(n>20)):
             idx = 'fault'
             ans = 'n should between 1 and 20'
@@ -126,8 +132,6 @@ class Increase:
             idx = 'fault'
             ans = 'the length not match'
             return idx,ans
-        ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
-        lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         num = range(n)
         ans = 0
         idx = ''
@@ -146,6 +150,11 @@ class Increase:
     @staticmethod
     def permutation(n, index):
         #TODO
+        index = int(index)
+        ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
+        lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
+        const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
+       
         if((n<1)|(n>20)):
             idx = 'fault'
             ans = 'n should between 1 and 20'
@@ -153,8 +162,6 @@ class Increase:
         if((index<0)|(index>=const[n])):
             idx = 'fault'
             ans = 'index should between 0 and n！-1'
-        ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
-        lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         num = range(n-1,-1,-1)
         res = range(n)
         used = range(n)
@@ -178,33 +185,36 @@ class Increase:
 # for test, next = add 3, previous = subtract 3, p2index = add 30, index2p = subtract 30
 # for test permutation length, more n variables base last step test
 class Decrease:
-    const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
     # return the [current] permutation's next permutation 
     @staticmethod
     def next(n, current):
         #TODO
-        idx,ans = index(n,current)
+        idx,ans = Decrease.index(n,current)
         if(idx=='fault'):
             return idx,ans
         ans = ans + 1
-        idx,ans = permutation(n,ans)
+        idx,ans = Decrease.permutation(n,ans)
         return idx,ans
     
     # return the [current] permutation's previous permutation 
     @staticmethod
     def previous(n, current):
         #TODO
-        idx,ans = index(n,current)
+        idx,ans = Decrease.index(n,current)
         if(idx=='fault'):
             return idx,ans
         ans = ans - 1
-        idx,ans = permutation(n,ans)
+        idx,ans = Decrease.permutation(n,ans)
         return idx,ans
     
     # return the [current] permutation's index
     @staticmethod
     def index(n, current):
         #TODO
+        ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
+        lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
+        const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
+        
         if((n<1)|(n>20)):
             idx = 'fault'
             ans = 'n should between 1 and 20'
@@ -213,8 +223,6 @@ class Decrease:
             idx = 'fault'
             ans = 'the length not match'
             return idx,ans
-        ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
-        lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         num = range(n)
         ans = 0
         idx = ''
@@ -234,6 +242,11 @@ class Decrease:
     @staticmethod
     def permutation(n, index):
         #TODO
+        index = int(index)
+        ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
+        lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
+        const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
+        
         if((n<1)|(n>20)):
             idx = 'fault'
             ans = 'n should between 1 and 20'
@@ -241,8 +254,6 @@ class Decrease:
         if((index<0)|(index>=const[n])):
             idx = 'fault'
             ans = 'index should between 0 and n！-1'
-        ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
-        lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         num = range(n-1,-1,-1)
         res = range(n)
         used = range(n)
@@ -266,33 +277,36 @@ class Decrease:
 # for test, next = add 4, previous = subtract 4, p2index = add 40, index2p = subtract 40
 # for test permutation length, more n variables base last step test
 class Switch:
-    const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
     # return the [current] permutation's next permutation 
     @staticmethod
     def next(n, current):
         #TODO
-        idx,ans = index(n,current)
+        idx,ans = Switch.index(n,current)
         if(idx=='fault'):
             return idx,ans
         ans = ans + 1        
-        idx,ans = permutation(n,ans)
+        idx,ans = Switch.permutation(n,ans)
         return idx,ans
     
     # return the [current] permutation's previous permutation 
     @staticmethod
     def previous(n, current):
         #TODO
-        idx,ans = index(n,current)
+        idx,ans = Switch.index(n,current)
         if(idx=='fault'):
             return idx,ans
         ans = ans - 1
-        idx,ans = permutation(n,ans)
+        idx,ans = Switch.permutation(n,ans)
         return idx,ans
     
     # return the [current] permutation's index
     @staticmethod
     def index(n, current):
         #TODO
+        ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
+        lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
+        const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
+        
         if((n<1)|(n>20)):
             idx = 'fault'
             ans = 'n should between 1 and 20'
@@ -301,8 +315,6 @@ class Switch:
             idx = 'fault'
             ans = 'the length not match'
             return idx,ans
-        ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
-        lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         num = range(n)
         ans = 0
         idx = ''
@@ -336,6 +348,11 @@ class Switch:
     @staticmethod
     def permutation(n, index):
         #TODO
+        index = int(index)
+        ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
+        lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
+        const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
+        
         if((n<1)|(n>20)):
             idx = 'fault'
             ans = 'n should between 1 and 20'
@@ -343,8 +360,6 @@ class Switch:
         if((index<0)|(index>=const[n])):
             idx = 'fault'
             ans = 'index should between 0 and n！-1'
-        ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
-        lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         num = range(n-1,-1,-1)
         res = range(n)
         used = range(n)
