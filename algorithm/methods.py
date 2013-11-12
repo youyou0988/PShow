@@ -72,6 +72,7 @@ class Dictionary:
         if((index<0)|(index>=const[n])):
             idx = 'fault'
             ans = 'index should between 0 and n！-1'
+            return idx,ans
         num = range(n-1,-1,-1)
         res = range(n)
         result = ''
@@ -140,7 +141,7 @@ class Increase:
             val = n - lsn.index(ss)
             num[val] = 0
             for j in range(i,n):
-                if(current[i]>scurrent[j]) : num[val]=num[val]+1
+                if(current[i]>current[j]) : num[val]=num[val]+1
             ans = ans + num[val]*const[n-val-1]
         for i in range(0,n-1):
             idx = idx + lsn[num[i]]
@@ -162,6 +163,7 @@ class Increase:
         if((index<0)|(index>=const[n])):
             idx = 'fault'
             ans = 'index should between 0 and n！-1'
+            return idx,ans
         num = range(n-1,-1,-1)
         res = range(n)
         used = range(n)
@@ -254,6 +256,7 @@ class Decrease:
         if((index<0)|(index>=const[n])):
             idx = 'fault'
             ans = 'index should between 0 and n！-1'
+            return idx,ans
         num = range(n-1,-1,-1)
         res = range(n)
         used = range(n)
@@ -360,6 +363,7 @@ class Switch:
         if((index<0)|(index>=const[n])):
             idx = 'fault'
             ans = 'index should between 0 and n！-1'
+            return idx,ans
         num = range(n-1,-1,-1)
         res = range(n)
         used = range(n)
