@@ -19,8 +19,8 @@ def info(request):
         return HttpResponseRedirect('/login/')
     
     student_rank = Student.objects.all().order_by('-score')[0:10]
-    algorithm_space = Algorithm.objects.filter(status = 0).order_by('-space')[0:10]
-    algorithm_time = Algorithm.objects.filter(status = 0).order_by('-time')[0:10]
+    algorithm_space = Algorithm.objects.filter(status = 0).order_by('space')[0:10]
+    algorithm_time = Algorithm.objects.filter(status = 0).order_by('time')[0:10]
     
     return render_to_response('info.html', RequestContext(request, locals()))
 

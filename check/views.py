@@ -56,7 +56,7 @@ def add_algorithm(request):
                 # mkdir directory of nut
                 source = request.FILES['source']
                 nut = '%s/%s' % (ROOT, 'nut')
-                dest = '%s/%s/%s/%s' % (ROOT, 'code', student.sid, name)
+                dest = '%s/%s/%s/%s' % (ROOT, 'code', student.sid, sum)
                 if not os.path.exists(dest):
                     os.makedirs(dest, 0775)
                 os.system('cp -r %s %s' % (nut, dest))
