@@ -20,3 +20,6 @@ class Algorithm(models.Model):
     
     # Space for run this algorithm
     space = models.IntegerField(default = 0)
+    
+    # 
+    status = models.IntegerField(default = 0)

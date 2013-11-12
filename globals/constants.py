@@ -1,3 +1,7 @@
+from os.path import dirname, join
+
+ROOT = dirname(dirname(__file__))
+
 # The [index] or [permutation] exceed the length should be 
 OVERFLOW = -11
 

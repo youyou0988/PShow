@@ -10,7 +10,7 @@ char* Permutation::pNext(){
     char* p = "";
     switch (this->index){
         case 0:
-            p = "123";break;
+            p = "133";break;
         case 1:
             p = "132";break;
         case 2:

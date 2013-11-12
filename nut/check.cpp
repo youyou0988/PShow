@@ -9,8 +9,8 @@ using namespace std;
 // 1 wrong
 // 2 repeat
 int addP(struct Node* n, char* p){
-    cout << "----------------------------------" << endl;
-    cout << p << " insert" << endl;
+    //cout << "----------------------------------" << endl;
+    //cout << p << " insert" << endl;
     char c = p[0];
     int i = char2index(c);
     
@@ -57,12 +57,12 @@ int addP(struct Node* n, char* p){
             i = char2index(c);
         }
     }
-    
+/*    
     cout << p << endl;
     cout << c << endl;
     cout << n->current << endl;
     cout << n->suffix << endl;
-
+*/
     // If n is head, then will not sink down
     if (n->current != ' ' && strlen(n->suffix) > 1) {
         struct Node* node = new Node();

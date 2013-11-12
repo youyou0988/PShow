@@ -8,3 +8,5 @@
 .pydevproject
 .settings
 main
+run
+pshow.db

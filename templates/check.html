@@ -12,7 +12,8 @@
 	
 	<h3>You have update those alogrithm:<br /></h3>
 	{% for a in algorithms %}
-	{{ a.name }}, {{ a.time }}, {{ a.space }} <br />
+    [Name: {{ a.name }}],[Status: {% ifequal a.status 0 %}Success{% endifequal%}{% ifequal a.status 1 %}Wrong{% endifequal%}{% ifequal a.status 2 %}Repeat{% endifequal%}{% ifequal a.status 3 %}Few{% endifequal%}],
+    [Time: {{ a.time }} us], [Memory: {{ a.space }}K] <br />
 	<form enctype="multipart/form-data" method="post" action="/udpate_algorithm/{{ a.index }}/">
 		    {% csrf_token %}
 		    {{ updateform|bootstrap }}

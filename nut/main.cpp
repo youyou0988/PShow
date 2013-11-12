@@ -1,6 +1,8 @@
 #include "check.h"
 #include "algorithm.h"
 #include <iostream>
+#include <fstream>
+#include <ctime>
 
 using namespace std;
 
@@ -46,22 +48,13 @@ int main(){
         }
     }
     
-    if (num < 1){
+    if (num < c[length]){
         error = 3;
     }
-
-    switch(error){
-        case 0:
-            cout << "Correct" << endl; break;
-        case 1:
-            cout << "Wrong" << endl; break;
-        case 2:
-            cout << "Repeat" << endl; break;
-        case 3:
-            cout << "Too Few" << endl; break;
-        default:
-            break;
-    }
+     
+    // Time
+    ofstream fout("result");
+    fout << error << "," << endl;
 
     return 0;
 }
