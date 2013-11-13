@@ -34,12 +34,28 @@
 	<form method='POST' action="/show/action/">
 	{% csrf_token %}
 	<div class="row">
+		<div class="span4">
+         {{ piform.num|bootstrap }}
+		</div>
 		<div class="span4 offset1">
 		{{ piform.permutation|bootstrap }}
+		</div>
+		<div class="span4">
+		{{ piform.middle|bootstrap }}
 		</div>
          <div class="span4">
          {{ piform.index|bootstrap }}
 		</div>
+		<div class="span4">
+         {{ piform.oldpermutation|bootstrap }}
+		</div>
+		<div class="span4">
+         {{ piform.oldmiddle|bootstrap }}
+		</div>
+		<div class="span4">
+         {{ piform.oldindex|bootstrap }}
+		</div>
+		
 		</div>
    
     <input type="submit" name="index_p" value="P2Index" class="btn btn-info">
