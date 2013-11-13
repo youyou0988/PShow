@@ -32,9 +32,10 @@ def show_(request):
     else:
         form = showForm(instance = student.show)
     
-    current_p = u'0'
-    current_i = index_p_(student.show, current_p)
-    piform = piForm(initial={'permutation':current_p, 'index':current_i})
+    current_p = u'1234'
+    num = 1
+    current_idx,current_i = index_p_(student.show, current_p)	
+    piform = piForm(initial={'permutation':current_p, 'middle':current_idx,'index':current_i,'num':num,'oldpermutation':current_p,'oldmiddle':current_idx,'oldindex':current_i})
     
     return render_to_response('show.html', RequestContext(request, locals()))
 
@@ -57,21 +58,24 @@ def action(request):
         piform = piForm(request.POST)
         if piform.is_valid():
             current = piform.cleaned_data['permutation']
+            num = piform.cleaned_data['num']
             
-            current_p = next_p_(student.show, current)
-            current_i = index_p_(student.show, current) + 1
+            #current_op = next_p_(student.show, current)
+            old_idx,old_index = index_p_(student.show, current)
+            new_index = old_index + int(num)
+            new_idx,new_p = permutation_p_(student.show,new_index)
             
-            piform = piForm(initial={'permutation':current_p, 'index':current_i})
+            piform = piForm(initial={'num':num,'permutation':new_p,'middle':new_idx,'index':new_index,'oldpermutation':current,'oldmiddle':old_idx,'oldindex':old_index})
     # form pre_p
     elif request.method == 'POST' and 'pre_p' in request.POST:
         piform = piForm(request.POST)
         if piform.is_valid():
             current = piform.cleaned_data['permutation']
-            
-            current_p = pre_p_(student.show, current)
-            current_i = index_p_(student.show, current) - 1
-            
-            piform = piForm(initial={'permutation':current_p, 'index':current_i})
+            num = piform.cleaned_data['num']
+            old_idx,old_index = index_p_(student.show, current)
+            new_index = old_index - int(num)
+            new_idx,new_p = permutation_p_(student.show,new_index)
+            piform = piForm(initial={'num':num,'permutation':new_p,'middle':new_idx,'index':new_index,'oldpermutation':current,'oldmiddle':old_idx,'oldindex':old_index})
     # for index_p
     elif request.method == 'POST' and 'index_p' in request.POST:
         piform = piForm(request.POST)
@@ -79,18 +83,18 @@ def action(request):
             current = piform.cleaned_data['permutation']
             
             current_p = current
-            current_i = index_p_(student.show, current)
+            current_idx,current_i = index_p_(student.show, current)
             
-            piform = piForm(initial={'permutation':current_p, 'index':current_i})
+            piform = piForm(initial={'permutation':current_p, 'middle':current_idx,'index':current_i,'num':1,'oldpermutation':current_p,'oldmiddle':current_idx,'oldindex':current_index})
     # for permutation_p
     elif request.method == 'POST' and 'permutation_p' in request.POST:
         piform = piForm(request.POST)
         if piform.is_valid():
             index = piform.cleaned_data['index']
             
-            current_p = permutation_p_(student.show, index)
+            current_idx,current_p = permutation_p_(student.show, index)
             current_i = index
             
-            piform = piForm(initial={'permutation':current_p, 'index':current_i})
+            piform = piForm(initial={'permutation':current_p, 'middle':current_idx,'index':current_i,'num':1,'oldpermutation':current_p,'oldmiddle':current_idx,'oldindex':current_index})
     
     return render_to_response('show.html', RequestContext(request, locals()))
