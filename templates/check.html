@@ -6,7 +6,9 @@
 	<h3>You can add your new type algorithm:</h3>
 	<form enctype="multipart/form-data" method="post" action="/add_algorithm/">
 		    {% csrf_token %}
-		    {{ addform|bootstrap }}
+		    {{ addform.name|bootstrap }}
+		    {{ addform.source }}
+		    </br>
 		    <input type="submit" value="Add" class="btn btn-primary">
 	</form>
 	
