@@ -18,9 +18,21 @@ class showForm(forms.ModelForm):
         
 class piForm(forms.Form):
     
-    def set__(self, p ,i ):
+    def set__(self,p,idx,i,op,oidx,oi,num):
         self.fields['permutation'] = p
+        self.fields['middle'] = idx
         self.fields['index'] = i
+        self.fields['oldpermutation'] = op
+        self.fields['oldmiddle'] = oidx
+        self.fields['oldindex'] = oi
+        self.fields['num'] = num
+        
+		
         
     permutation = forms.CharField(max_length = PLENGTH)
     index = forms.CharField(max_length = ILENGTH)
+    middle = forms.CharField(max_length = PLENGTH)
+    oldindex = forms.CharField(max_length = PLENGTH)
+    oldmiddle = forms.CharField(max_length = PLENGTH)
+    oldpermutation = forms.CharField(max_length = PLENGTH)
+    num = forms.CharField(max_length = PLENGTH)
