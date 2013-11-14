@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block main %}
+{% load bootstrap %}
+{% load bootstrap_toolkit %}
+----------Student Rank--------------<br/>
+    {% for s in student_rank %}
+    {{ s.name }} -- {{ s.score }}<br />
+    {% endfor %}
+    
+    <br />
+    <br />
+    <br />
+
+    ------------Algorithm Rank by Time--------------<br />
+    {% for a in algorithm_time %}
+    {{ a.name }} by {{ a.owner.name }}, Time : {{ a.time }} <br />
+    {% endfor %}
+    <br />
+    <br />
+    <br />
+
+    ------------Algorithm Rank by Space--------------<br />
+    {% for a in algorithm_space %}
+    {{ a.name }} by {{ a.owner.name }}, Time : {{ a.space }} <br />
+    {% endfor %}
+{% endblock %}

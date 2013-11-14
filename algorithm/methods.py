@@ -71,7 +71,7 @@ class Dictionary:
             return idx,ans
         if((index<0)|(index>=const[n])):
             idx = 'fault'
-            ans = 'index should between 0 and n！-1'
+            ans = 'index should between 0 and n! -1'
             return idx,ans
         num = range(n-1,-1,-1)
         res = range(n)
@@ -162,7 +162,7 @@ class Increase:
             return idx,ans
         if((index<0)|(index>=const[n])):
             idx = 'fault'
-            ans = 'index should between 0 and n！-1'
+            ans = 'index should between 0 and n! -1'
             return idx,ans
         num = range(n-1,-1,-1)
         res = range(n)
@@ -255,7 +255,7 @@ class Decrease:
             return idx,ans
         if((index<0)|(index>=const[n])):
             idx = 'fault'
-            ans = 'index should between 0 and n！-1'
+            ans = 'index should between 0 and n! -1'
             return idx,ans
         num = range(n-1,-1,-1)
         res = range(n)
@@ -362,7 +362,7 @@ class Switch:
             return idx,ans
         if((index<0)|(index>=const[n])):
             idx = 'fault'
-            ans = 'index should between 0 and n！-1'
+            ans = 'index should between 0 and n! -1'
             return idx,ans
         num = range(n-1,-1,-1)
         res = range(n)

@@ -37,4 +37,8 @@ urlpatterns = patterns('',
     # for show
     url(r'^show/action/$', 'show.views.action'),
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve', {'document_root':media}),
+    
+    # for info
+    url(r'^info/$', 'info.views.info'),
+    
 )
