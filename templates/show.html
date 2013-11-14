@@ -1,67 +1,60 @@
-{% extends "base.html" %}
-
-{% block main %}
-{% load bootstrap %}
-{% load bootstrap_toolkit %}
+{% extends "base.html" %} {% block main %} {% load bootstrap %} {% load bootstrap_toolkit %}
 <style type="text/css">
 .form-signin {
-    background-color: #FFFFFF;
-    border: 1px solid #E5E5E5;
-    border-radius: 5px 5px 5px 5px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-    margin: 0 auto 20px;
-    padding: 19px 29px 29px;
+	background-color: #FFFFFF;
+	border: 1px solid #E5E5E5;
+	border-radius: 5px 5px 5px 5px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+	margin: 0 auto 20px;
+	padding: 10px 29px 10px;
 }
 </style>
 <div class="form-signin">
-	<h3>You can set the length or type for show permutation:<br /></h3>
-	<form method="post" action="/show/">
+	<div class="row">
+	<div class="col-md-8">
+	<h4>You can set the length or type for show permutation:</h4>
+		<form method="post" action="/show/">
+			{% csrf_token %}
+			<div class="row">
+				<div class="span4 offset1">{{ form.length|bootstrap }}</div>
+				<div class="span4">{{ form.type|bootstrap }}</div>
+			</div>
+
+			<button type="submit" class="btn btn-primary" value="Set">Set</button>
+		</form>
+	</div>
+		
+	<div class="col-md-4">
+		<div class="alert alert-success">length is  <a class="alert-link">{{ student.show.length }}</a></div>
+		<div class="alert alert-success">your type is <a class="alert-link">No. {{ student.show.type }} </a></div>
+		
+	</div>
+	</div>
+</div>
+<div class="form-signin">
+	<h4>This show algorithm page:</h4>
+	{{ current_i }}
+	<form method='POST' action="/show/action/">
 		{% csrf_token %}
 		<div class="row">
-		<div class="span4 offset1">
-		{{ form.length|bootstrap }}
+			<span class="label label-primary">Please set your permutation:</span>
+			<div class="span4 ">{{ piform.permutation|bootstrap }}
+			<!-- <div class="span4">{{ piform.num|bootstrap }}</div> -->
+			<!-- <div class="span4 ">{{ piform.permutation|bootstrap }}</div>
+			<div class="span4">{{ piform.middle|bootstrap }}</div>
+			<div class="span4">{{ piform.index|bootstrap }}</div>
+			<div class="span4">{{ piform.oldpermutation|bootstrap }}</div>
+			<div class="span4">{{ piform.oldmiddle|bootstrap }}</div>
+			<div class="span4">{{ piform.oldindex|bootstrap }}</div> -->
+			
 		</div>
-         <div class="span4">
-         {{ form.type|bootstrap }}
-		</div>
-		</div>
-		
-		<button type="submit" class="btn btn-primary" value="Set">Set</button>
+
+		<input type="submit" name="index_p" value="P2Index"
+			class="btn btn-info"> 
+		<input type="submit" name="permutation_p" value="Index2P" class="btn btn-info"> 
+		<input type="submit" name="next_p" value="Next" class="btn btn-info">
+		<input type="submit" name="pre_p" value="Previous"
+			class="btn btn-info">
 	</form>
-	</div>
-	<div class="form-signin">
-	<h3>This show algorithm page:<br /></h3>
-	<form method='POST' action="/show/action/">
-	{% csrf_token %}
-	<div class="row">
-		<div class="span4">
-         {{ piform.num|bootstrap }}
-		</div>
-		<div class="span4 offset1">
-		{{ piform.permutation|bootstrap }}
-		</div>
-		<div class="span4">
-		{{ piform.middle|bootstrap }}
-		</div>
-         <div class="span4">
-         {{ piform.index|bootstrap }}
-		</div>
-		<div class="span4">
-         {{ piform.oldpermutation|bootstrap }}
-		</div>
-		<div class="span4">
-         {{ piform.oldmiddle|bootstrap }}
-		</div>
-		<div class="span4">
-         {{ piform.oldindex|bootstrap }}
-		</div>
-		
-		</div>
-   
-    <input type="submit" name="index_p" value="P2Index" class="btn btn-info">
-    <input type="submit" name="permutation_p" value="Index2P" class="btn btn-info">
-    <input type="submit" name="next_p" value="Next" class="btn btn-info">
-    <input type="submit" name="pre_p" value="Previous" class="btn btn-info">
-    </form>
-    </div>
+</div>
 {% endblock %}
