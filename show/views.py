@@ -94,7 +94,6 @@ def action(request):
             
             current_idx,current_p = permutation_p_(student.show, index)
             current_i = index
-            
             piform = piForm(initial={'permutation':current_p, 'middle':current_idx,'index':current_i,'num':1,'oldpermutation':current_p,'oldmiddle':current_idx,'oldindex':current_i})
     
     return render_to_response('show.html', RequestContext(request, locals()))
