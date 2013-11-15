@@ -234,8 +234,8 @@ class Decrease:
             num[val] = 0
             for j in range(i,n):
                 if(current[i]>current[j]) : num[val]=num[val]+1       
-        for j in range(0,n-1):
-            ans = ans*(j+2)+num[j+1]
+        for j in range(n-1):
+            ans = ans*(j+2)+num[n-2-j]
         for i in range(n-2,-1,-1):
             idx = idx + lsn[num[i]]
         return idx,ans
