@@ -9,6 +9,7 @@
 	padding: 10px 29px 10px;
 }
 </style>
+<script type="text/javascript" src="/media/js/settings.js"></script>
 <div class="form-signin">
 	<div class="row">
 	<div class="col-md-8">
@@ -31,30 +32,217 @@
 	</div>
 	</div>
 </div>
-<div class="form-signin">
-	<h4>This show algorithm page:</h4>
-	{{ current_i }}
+<div class="form-signin" id="youyou_0">
+	<h4>根据排列数生成序号:</h4>
 	<form method='POST' action="/show/action/">
 		{% csrf_token %}
-		<div class="row">
-			<span class="label label-primary">Please set your permutation:</span>
-			<div class="span4 ">{{ piform.permutation|bootstrap }}
-			<!-- <div class="span4">{{ piform.num|bootstrap }}</div> -->
-			<!-- <div class="span4 ">{{ piform.permutation|bootstrap }}</div>
-			<div class="span4">{{ piform.middle|bootstrap }}</div>
-			<div class="span4">{{ piform.index|bootstrap }}</div>
-			<div class="span4">{{ piform.oldpermutation|bootstrap }}</div>
-			<div class="span4">{{ piform.oldmiddle|bootstrap }}</div>
-			<div class="span4">{{ piform.oldindex|bootstrap }}</div> -->
+		<div class="row-fluid">
+			<div class="row">
+			<div class="span4" style="display:none">
+			
+			{{ piform.num|bootstrap }}</div>
+			<div class="span4 " >
+			<span class="label label-primary">请输入您的排列数:</span>
+			<p></p>
+			{{ piform.permutation|bootstrap }}</div>
+			<!-- <div class="span4 offset4" >
+			<input type="submit" name="index_p" value="P2Index" class="btn btn-info"> 
+			</div> -->
+			<div class="set_readonly">
+			<div class="span4" >
+			<span class="label label-primary">经过计算，对应的中介数是:</span>
+			<p></p>
+			{{ piform.middle|bootstrap }}
+			</div>
+			<div class="span4" >
+			<span class="label label-primary">最终得到的序号为:</span>
+			<p></p>
+			{{ piform.index|bootstrap }}</div>
+			</div>
+			</div>
+			
+			<div class="span4" style="display:none">{{ piform.oldpermutation|bootstrap }}</div>
+			<div class="span4" style="display:none">{{ piform.oldmiddle|bootstrap }}</div>
+			<div class="span4" style="display:none">{{ piform.oldindex|bootstrap }}</div> 
 			
 		</div>
 
 		<input type="submit" name="index_p" value="P2Index"
 			class="btn btn-info"> 
-		<input type="submit" name="permutation_p" value="Index2P" class="btn btn-info"> 
+		<!-- <input type="submit" name="permutation_p" value="Index2P" class="btn btn-info"> 
 		<input type="submit" name="next_p" value="Next" class="btn btn-info">
 		<input type="submit" name="pre_p" value="Previous"
-			class="btn btn-info">
+			class="btn btn-info"> -->
 	</form>
 </div>
+<div class="form-signin" id="youyou_1">
+	<h4>根据序号生成排列数:</h4>
+	<form method='POST' action="/show/action/">
+		{% csrf_token %}
+		<div class="row-fluid">
+			<div class="row">
+			<div class="span4" style="display:none">
+			
+			{{ piform.num|bootstrap }}</div>
+			<div class="span4 " >
+			<span class="label label-primary">请输入您的序号:</span>
+			<p></p>
+			{{ piform.index|bootstrap }}</div>
+			<!-- <div class="span4 offset4" >
+			<input type="submit" name="index_p" value="P2Index" class="btn btn-info"> 
+			</div> -->
+			<div class='set_readonly'>
+			<div class="span4" >
+			<span class="label label-primary">经过计算，对应的中介数是:</span>
+			<p></p>
+			{{ piform.middle|bootstrap }}</div>
+			<div class="span4" >
+			<span class="label label-primary">最终得到的排列数是:</span>
+			<p></p>
+			{{ piform.permutation|bootstrap }}</div>
+			</div>
+			</div>
+			
+			<div class="span4" style="display:none">{{ piform.oldpermutation|bootstrap }}</div>
+			<div class="span4" style="display:none">{{ piform.oldmiddle|bootstrap }}</div>
+			<div class="span4" style="display:none">{{ piform.oldindex|bootstrap }}</div> 
+			
+		</div>
+
+		<input type="submit" name="permutation_p" value="Index2P"
+			class="btn btn-info"> 
+		<!-- <input type="submit" name="permutation_p" value="Index2P" class="btn btn-info"> 
+		<input type="submit" name="next_p" value="Next" class="btn btn-info">
+		<input type="submit" name="pre_p" value="Previous"
+			class="btn btn-info"> -->
+	</form>
+</div>
+<div class="form-signin" id="youyou_2" >
+	<h4>展现前n个排列数:</h4>
+	<form method='POST' action="/show/action/">
+		{% csrf_token %}
+		<div class="row-fluid">
+			<div class="row">
+			
+			<div class="span4" >
+			<span class="label label-primary">请输入n值:</span>
+			<p></p>
+			{{ piform.num|bootstrap }}</div>
+			<div class="span4 " >
+			<span class="label label-primary">请输入您的排列数:</span>
+			<p></p>
+			{{ piform.oldpermutation|bootstrap }}</div>
+			<!-- <div class="span4 offset4" >
+			<input type="submit" name="index_p" value="P2Index" class="btn btn-info"> 
+			</div> -->
+			<div class='set_readonly'>
+			<div class="span4" >
+			<span class="label label-primary">经过计算，原有的中介数为:</span>
+			<p></p>
+			{{ piform.oldmiddle|bootstrap }}</div>
+			<div class="span4" >
+			<span class="label label-primary">经过计算，原有的序号为:</span>
+			<p></p>
+			{{ piform.oldindex|bootstrap }}</div>
+			
+			
+			<div class="span4 " >
+			<span class="label label-info">新的中介数为:</span>
+			<p></p>
+			{{ piform.middle|bootstrap }}</div>
+			<div class="span4" >
+			<span class="label label-info">新的排列数为:</span>
+			<p></p>
+			{{ piform.permutation|bootstrap }}</div>
+			<div class="span4" >
+			<span class="label label-info">新的序号为:</span>
+			<p></p>
+			{{ piform.index|bootstrap }}</div>
+			</div>
+			</div>
+			
+			
+		<input type="submit" name="pre_p" value="Previous" id="btn_previous"
+			class="btn btn-info"> 
+			</div>
+		<!-- <input type="submit" name="permutation_p" value="Index2P" class="btn btn-info"> 
+		<input type="submit" name="next_p" value="Next" class="btn btn-info">
+		<input type="submit" name="pre_p" value="Previous"
+			class="btn btn-info"> -->
+	</form>
+</div>
+<div class="form-signin" id="youyou_3" >
+	<h4>展现后n个排列数:</h4>
+	<form method='POST' action="/show/action/">
+		{% csrf_token %}
+		<div class="row-fluid">
+			<div class="row">
+			
+			<div class="span4">
+			<span class="label label-primary">请输入n值:</span>
+			<p></p>
+			{{ piform.num|bootstrap }}</div>
+			<div class="span4 " >
+			<span class="label label-primary">请输入您的排列数:</span>
+			<p></p>
+			{{ piform.oldpermutation|bootstrap }}</div>
+			<!-- <div class="span4 offset4" >
+			<input type="submit" name="index_p" value="P2Index" class="btn btn-info"> 
+			</div> -->
+			<div class="set_readonly">
+			<div class="span4" >
+			<span class="label label-primary">经过计算，原有的中介数为:</span>
+			<p></p>
+			{{ piform.oldmiddle|bootstrap }}</div>
+			<div class="span4" >
+			<span class="label label-primary">经过计算，原有的序号为:</span>
+			<p></p>
+			{{ piform.oldindex|bootstrap }}</div>
+			<div class="span4 " >
+			<span class="label label-info">新的中介数为:</span>
+			<p></p>
+			{{ piform.middle|bootstrap }}</div>
+			<div class="span4" >
+			<span class="label label-info">新的排列数为:</span>
+			<p></p>
+			{{ piform.permutation|bootstrap }}</div>
+			<div class="span4" >
+			<span class="label label-info">新的序号为:</span>
+			<p></p>
+			{{ piform.index|bootstrap }}</div>
+			
+			</div>
+			</div>
+			
+			
+		<input type="submit" name="next_p" value="Next"  id="btn_next"
+			class="btn btn-info"> 
+			</div>
+		<!-- <input type="submit" name="permutation_p" value="Index2P" class="btn btn-info"> 
+		<input type="submit" name="next_p" value="Next" class="btn btn-info">
+		<input type="submit" name="pre_p" value="Previous"
+			class="btn btn-info"> -->
+	</form>
+</div>
+<!-- <span class="label label-primary" onMouseMove="JavaScript:ChangeDiv('0','youyou_',3)" style="cursor:hand;">内容一</span>
+<span class="label label-success" onMouseMove="JavaScript:ChangeDiv('1','youyou_',3)" style="cursor:hand;">内容二</span>
+<span class="label label-info" onMouseMove="JavaScript:ChangeDiv('2','youyou_',3)" style="cursor:hand;">内容三</span>
+<span class="label label-warning" onMouseMove="JavaScript:ChangeDiv('3','youyou_',3)" style="cursor:hand;">内容4</span> -->
+<script language="JavaScript" type="text/javascript">
+/*********************************************
+功能:    通用DIV切换函数
+参数:    divID --当前DIV的ID号；divName  --要改变的这一组DIV的命名前缀；zDivCount --这一组DIV的个数-1
+BY  :   JetKing 2007.06
+[url]http://www.80Boby.Com[/url]
+*********************************************/
+function ChangeDiv(divId,divName,zDivCount)
+{
+for(i=0;i<=zDivCount;i++)
+ {
+     document.getElementById(divName+i).style.display="none";
+ }
+ document.getElementById(divName+divId).style.display="block";
+}
+
+</script> 
 {% endblock %}
