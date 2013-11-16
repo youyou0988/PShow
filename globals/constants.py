@@ -18,13 +18,13 @@ NAMELENGTH = 50
 DIRLENGTH = 30
 
 # length for id
-IDLENGTH = 20
+IDLENGTH = 30
 
 # length for permutation
-PLENGTH = 20
+PLENGTH = 30
 
 # length for index
-ILENGTH = 20
+ILENGTH = 30
 
 # length for password
 PWDLENGTH = 30
