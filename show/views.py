@@ -32,9 +32,11 @@ def show_(request):
     else:
         form = showForm(instance = student.show)
     
-    current_p = u'1234'
+    current_p = 0
     num = 1
-    current_idx,current_i = index_p_(student.show, current_p)	
+    current_idx=0
+    current_i=0
+    #current_idx,current_i = index_p_(student.show, current_p)	
     piform = piForm(initial={'permutation':current_p, 'middle':current_idx,'index':current_i,'num':num,'oldpermutation':current_p,'oldmiddle':current_idx,'oldindex':current_i})
     
     return render_to_response('show.html', RequestContext(request, locals()))
