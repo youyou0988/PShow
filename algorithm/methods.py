@@ -43,6 +43,18 @@ class Dictionary:
             idx = 'fault'
             ans = 'the length not match'
             return idx,ans
+        used = range(n)
+        for i in range(n):
+            used[i]=0
+        for i in current:
+            used[ls.index(i)] = 1
+        total = 0
+        for i in range(n):
+            total = total + used[i]
+        if(total!=n):
+            idx = 'fault'
+            ans = 'the permutation is invalid'
+            return idx,ans
         num = range(n)
         ans = 0
         idx = ''
@@ -124,7 +136,18 @@ class Increase:
         ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
-       
+        used = range(n)
+        for i in range(n):
+            used[i]=0
+        for i in current:
+            used[ls.index(i)] = 1
+        total = 0
+        for i in range(n):
+            total = total + used[i]
+        if(total!=n):
+            idx = 'fault'
+            ans = 'the permutation is invalid'
+            return idx,ans
         if((n<1)|(n>20)):
             idx = 'fault'
             ans = 'n should between 1 and 20'
@@ -216,7 +239,18 @@ class Decrease:
         ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
-        
+        used = range(n)
+        for i in range(n):
+            used[i]=0
+        for i in current:
+            used[ls.index(i)] = 1
+        total = 0
+        for i in range(n):
+            total = total + used[i]
+        if(total!=n):
+            idx = 'fault'
+            ans = 'the permutation is invalid'
+            return idx,ans
         if((n<1)|(n>20)):
             idx = 'fault'
             ans = 'n should between 1 and 20'
@@ -309,7 +343,18 @@ class Switch:
         ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
-        
+        used = range(n)
+        for i in range(n):
+            used[i]=0
+        for i in current:
+            used[ls.index(i)] = 1
+        total = 0
+        for i in range(n):
+            total = total + used[i]
+        if(total!=n):
+            idx = 'fault'
+            ans = 'the permutation is invalid'
+            return idx,ans
         if((n<1)|(n>20)):
             idx = 'fault'
             ans = 'n should between 1 and 20'
