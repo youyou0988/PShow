@@ -9,6 +9,24 @@
 	padding: 10px 29px 10px;
 }
 </style>
+<script language="JavaScript" type="text/javascript">
+/*********************************************
+功能:    通用DIV切换函数
+参数:    divID --当前DIV的ID号；divName  --要改变的这一组DIV的命名前缀；zDivCount --这一组DIV的个数-1
+BY  :   JetKing 2007.06
+[url]http://www.80Boby.Com[/url]
+*********************************************/
+
+function ChangeDiv(divId,divName,zDivCount)
+{
+for(i=0;i<=zDivCount;i++)
+ {
+     document.getElementById(divName+i).style.display="none";
+ }
+ document.getElementById(divName+divId).style.display="block";
+}
+
+</script> 
 <script type="text/javascript" src="/media/js/settings.js"></script>
 <div class="form-signin">
 	<div class="row">
@@ -32,7 +50,7 @@
 	</div>
 	</div>
 </div>
-<div class="form-signin" id="youyou_0">
+<!-- <div class="form-signin" id="youyou_0">
 	<h4>根据排列数生成序号:</h4>
 	<form method='POST' action="/show/action/">
 		{% csrf_token %}
@@ -45,9 +63,9 @@
 			<span class="label label-primary">请输入您的排列数:</span>
 			<p></p>
 			{{ piform.permutation|bootstrap }}</div>
-			<!-- <div class="span4 offset4" >
+			<div class="span4 offset4" >
 			<input type="submit" name="index_p" value="P2Index" class="btn btn-info"> 
-			</div> -->
+			</div>
 			<div class="set_readonly">
 			<div class="span4" >
 			<span class="label label-primary">经过计算，对应的中介数是:</span>
@@ -69,13 +87,13 @@
 
 		<input type="submit" name="index_p" value="P2Index"
 			class="btn btn-info"> 
-		<!-- <input type="submit" name="permutation_p" value="Index2P" class="btn btn-info"> 
+		<input type="submit" name="permutation_p" value="Index2P" class="btn btn-info"> 
 		<input type="submit" name="next_p" value="Next" class="btn btn-info">
 		<input type="submit" name="pre_p" value="Previous"
-			class="btn btn-info"> -->
+			class="btn btn-info">
 	</form>
-</div>
-<div class="form-signin" id="youyou_1">
+</div> -->
+<!-- <div class="form-signin" id="youyou_1">
 	<h4>根据序号生成排列数:</h4>
 	<form method='POST' action="/show/action/">
 		{% csrf_token %}
@@ -88,9 +106,9 @@
 			<span class="label label-primary">请输入您的序号:</span>
 			<p></p>
 			{{ piform.index|bootstrap }}</div>
-			<!-- <div class="span4 offset4" >
+			<div class="span4 offset4" >
 			<input type="submit" name="index_p" value="P2Index" class="btn btn-info"> 
-			</div> -->
+			</div>
 			<div class='set_readonly'>
 			<div class="span4" >
 			<span class="label label-primary">经过计算，对应的中介数是:</span>
@@ -111,13 +129,13 @@
 
 		<input type="submit" name="permutation_p" value="Index2P"
 			class="btn btn-info"> 
-		<!-- <input type="submit" name="permutation_p" value="Index2P" class="btn btn-info"> 
+		<input type="submit" name="permutation_p" value="Index2P" class="btn btn-info"> 
 		<input type="submit" name="next_p" value="Next" class="btn btn-info">
 		<input type="submit" name="pre_p" value="Previous"
-			class="btn btn-info"> -->
+			class="btn btn-info">
 	</form>
-</div>
-<div class="form-signin" id="youyou_2" >
+</div> -->
+<!-- <div class="form-signin" id="youyou_2" >
 	<h4>展现前n个排列数:</h4>
 	<form method='POST' action="/show/action/">
 		{% csrf_token %}
@@ -132,9 +150,9 @@
 			<span class="label label-primary">请输入您的排列数:</span>
 			<p></p>
 			{{ piform.oldpermutation|bootstrap }}</div>
-			<!-- <div class="span4 offset4" >
+			<div class="span4 offset4" >
 			<input type="submit" name="index_p" value="P2Index" class="btn btn-info"> 
-			</div> -->
+			</div>
 			<div class='set_readonly'>
 			<div class="span4" >
 			<span class="label label-primary">经过计算，原有的中介数为:</span>
@@ -165,13 +183,13 @@
 		<input type="submit" name="pre_p" value="Previous" id="btn_previous"
 			class="btn btn-info"> 
 			</div>
-		<!-- <input type="submit" name="permutation_p" value="Index2P" class="btn btn-info"> 
+		<input type="submit" name="permutation_p" value="Index2P" class="btn btn-info"> 
 		<input type="submit" name="next_p" value="Next" class="btn btn-info">
 		<input type="submit" name="pre_p" value="Previous"
-			class="btn btn-info"> -->
+			class="btn btn-info">
 	</form>
-</div>
-<div class="form-signin" id="youyou_3" >
+</div> -->
+<!-- <div class="form-signin" id="youyou_3" >
 	<h4>展现后n个排列数:</h4>
 	<form method='POST' action="/show/action/">
 		{% csrf_token %}
@@ -186,9 +204,9 @@
 			<span class="label label-primary">请输入您的排列数:</span>
 			<p></p>
 			{{ piform.oldpermutation|bootstrap }}</div>
-			<!-- <div class="span4 offset4" >
+			<div class="span4 offset4" >
 			<input type="submit" name="index_p" value="P2Index" class="btn btn-info"> 
-			</div> -->
+			</div>
 			<div class="set_readonly">
 			<div class="span4" >
 			<span class="label label-primary">经过计算，原有的中介数为:</span>
@@ -218,31 +236,53 @@
 		<input type="submit" name="next_p" value="Next"  id="btn_next"
 			class="btn btn-info"> 
 			</div>
-		<!-- <input type="submit" name="permutation_p" value="Index2P" class="btn btn-info"> 
+		<input type="submit" name="permutation_p" value="Index2P" class="btn btn-info"> 
 		<input type="submit" name="next_p" value="Next" class="btn btn-info">
 		<input type="submit" name="pre_p" value="Previous"
-			class="btn btn-info"> -->
+			class="btn btn-info">
 	</form>
+</div> -->
+
+<div class="form-signin">
+	<div class="row">
+		<div class="col-md-6">
+			<form method='POST' action="/show/action/" onsubmit="timedMsg()">
+			{% csrf_token %}
+			<table class="table">
+				<tr>
+					<td>{{ piform.permutation|bootstrap }}</td>
+					<td></td>
+					<td>{{ piform.index|bootstrap }}</td>
+				</tr>
+				<tr>
+					<td><input type="submit" name="index_p" value="P2Index" class="btn btn-info" id="btn_p2index"/ ></td>
+					<td></td>
+					<td><input type="submit" name="permutation_p" value="Index2P" class="btn btn-info"/></td>
+				</tr>
+				<tr>
+					<td><input type="submit" name="pre_p" value="Previous" class="btn btn-info"/></td>
+					<td>{{ piform.num|bootstrap }}</td>
+					<td><input type="submit" name="next_p" value="Next" class="btn btn-info"/></td>
+				</tr>
+			</table>
+			</form>
+			<!-- <form>
+<input type="button" value="Display timed alertbox!" onClick="timedMsg()">
+</form> -->
+		</div>
+		<div class="col-md-6">
+			<div id="test01" >{{ piform.oldpermutation|bootstrap }}</div>
+			<div id="test02">{{ piform.oldmiddle|bootstrap }}</div>
+			<div id="test03">{{ piform.oldindex|bootstrap }}</div>
+		</div>
+	</div>
 </div>
+
+
+
 <!-- <span class="label label-primary" onMouseMove="JavaScript:ChangeDiv('0','youyou_',3)" style="cursor:hand;">内容一</span>
 <span class="label label-success" onMouseMove="JavaScript:ChangeDiv('1','youyou_',3)" style="cursor:hand;">内容二</span>
 <span class="label label-info" onMouseMove="JavaScript:ChangeDiv('2','youyou_',3)" style="cursor:hand;">内容三</span>
 <span class="label label-warning" onMouseMove="JavaScript:ChangeDiv('3','youyou_',3)" style="cursor:hand;">内容4</span> -->
-<script language="JavaScript" type="text/javascript">
-/*********************************************
-功能:    通用DIV切换函数
-参数:    divID --当前DIV的ID号；divName  --要改变的这一组DIV的命名前缀；zDivCount --这一组DIV的个数-1
-BY  :   JetKing 2007.06
-[url]http://www.80Boby.Com[/url]
-*********************************************/
-function ChangeDiv(divId,divName,zDivCount)
-{
-for(i=0;i<=zDivCount;i++)
- {
-     document.getElementById(divName+i).style.display="none";
- }
- document.getElementById(divName+divId).style.display="block";
-}
 
-</script> 
 {% endblock %}

@@ -6,11 +6,24 @@ for(i=0;i<=zDivCount;i++)
  }
  document.getElementById(divName+divId).style.display="block";
 }
-window.onload = function(){
-	document.getElementById('btn_previous').onclick = function(){
-		//$('#previous_new').toggle();
-	}
-    $('.set_readonly').find('div').find('div').find('input').attr('readonly','readonly');
+function timedMsg()
+ {
+ 	var t=setTimeout(function(){
+ 		yyyy();
+ 	},3000);
+ }
+ function yyyy(){
+ 	alert('5 seconds!');
+ }
+
+$(document).ready(function(){
+	//document.getElementById('btn_p2index').onclick = function(){
+		//document.location.reload();
+		//setTimeout($('#test01').slideDown(), 6000);
+	//};
 	
-}
+	
+	 //$('.set_readonly').find('div').find('div').find('input').attr('readonly','readonly');
+	
+})
 	

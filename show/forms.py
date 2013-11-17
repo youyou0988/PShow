@@ -29,10 +29,10 @@ class piForm(forms.Form):
         
 		
         
-    permutation = forms.CharField(max_length = PLENGTH,label="",required=False)
-    index = forms.CharField(max_length = ILENGTH,label="",required=False)
+    permutation = forms.CharField(max_length = PLENGTH,label="Permutation",required=False)
+    index = forms.CharField(max_length = ILENGTH,label="Index",required=False)
     middle = forms.CharField(max_length = PLENGTH,label="",required=False)
-    oldindex = forms.CharField(max_length = PLENGTH,label="",required=False)
-    oldmiddle = forms.CharField(max_length = PLENGTH,label="",required=False)
-    oldpermutation = forms.CharField(max_length = PLENGTH,label="",required=False)
-    num = forms.CharField(max_length = PLENGTH,label="",required=False)
+    oldindex = forms.CharField(max_length = PLENGTH,label="Old Index",required=False)
+    oldmiddle = forms.CharField(max_length = PLENGTH,label="Old Intermediaries",required=False)
+    oldpermutation = forms.CharField(max_length = PLENGTH,label="Old Permutation",required=False)
+    num = forms.CharField(max_length = PLENGTH,label="N",required=False)

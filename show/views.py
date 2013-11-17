@@ -59,7 +59,7 @@ def action(request):
     if request.method == 'POST' and 'next_p' in request.POST:
         piform = piForm(request.POST)
         if piform.is_valid():
-            current = piform.cleaned_data['oldpermutation']
+            current = piform.cleaned_data['permutation']
             num = piform.cleaned_data['num']
             
             #current_op = next_p_(student.show, current)
@@ -72,7 +72,7 @@ def action(request):
     elif request.method == 'POST' and 'pre_p' in request.POST:
         piform = piForm(request.POST)
         if piform.is_valid():
-            current = piform.cleaned_data['oldpermutation']
+            current = piform.cleaned_data['permutation']
             num = piform.cleaned_data['num']
             old_idx,old_index = index_p_(student.show, current)
             new_index = old_index - int(num)
