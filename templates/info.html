@@ -12,14 +12,16 @@
 		</tr>
 	</thead>
 	<tbody>
-	<tr>
 	{% for s in student_rank %}
+	<tr>
+	
 		
 			<td>{{ s.name }}</td>
 			<td>{{ s.score }}</td>
 		
-		{% endfor %}
+		
 		</tr>
+		{% endfor %}
 	</tbody>
 </table>
 
@@ -35,14 +37,16 @@
 		</tr>
 	</thead>
 	<tbody>
-	<tr>
 	{% for a in algorithm_time %}
+	<tr>
+	
 		
 			<td> {{ a.name }} </td>
 			<td>{{ a.owner.name }} </td>
 		    <td>{{ a.time }}</td>
-		{% endfor %}
+		
 		</tr>
+		{% endfor %}
 	</tbody>
 </table>
 
@@ -56,14 +60,16 @@
 		</tr>
 	</thead>
 	<tbody>
-	<tr>
 	{% for a in algorithm_space %}
+	<tr>
+	
 		
 			<td> {{ a.name }} </td>
 			<td>{{ a.owner.name }} </td>
 		    <td>{{ a.space }}</td>
-		{% endfor %}
+		
 		</tr>
+		{% endfor %}
 	</tbody>
 </table>
  {% endblock %}

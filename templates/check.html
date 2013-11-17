@@ -14,12 +14,26 @@
 	
 	<h3>You have update those alogrithm:<br /></h3>
 	{% for a in algorithms %}
-    [Name: {{ a.name }}],[Status: {% ifequal a.status 0 %}Success{% endifequal%}{% ifequal a.status 1 %}Wrong{% endifequal%}{% ifequal a.status 2 %}Repeat{% endifequal%}{% ifequal a.status 3 %}Few{% endifequal%}],
-    [Time: {{ a.time }} us], [Memory: {{ a.space }}K] <br />
+	<table class="table">
+		<tr>
+			<th>Name</th>
+			<th>Status</th>
+			<th>Time</th>
+			<th>Memory</th>
+		</tr>
+		<tr>
+			<td>{{ a.name }}</td>
+			<td>{% ifequal a.status 0 %}Success{% endifequal%}{% ifequal a.status 1 %}Wrong{% endifequal%}{% ifequal a.status 2 %}Repeat{% endifequal%}{% ifequal a.status 3 %}Few{% endifequal%}</td>
+			<td>{{ a.time }} us</td>
+			<td> {{ a.space }}K</td>
+		</tr>
+	</table>
 	<form enctype="multipart/form-data" method="post" action="/udpate_algorithm/{{ a.index }}/">
 		    {% csrf_token %}
-		    {{ updateform|bootstrap }}
-		    <input type="submit" value="Update">
+		    {{ updateform.name }}
+		     {{ updateform.source }}
+		     </br>
+		    <input type="submit" value="Update" class="btn btn-info">
 	</form>
 	<br />
 	{% endfor %}
