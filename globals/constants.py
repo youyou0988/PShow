@@ -15,19 +15,19 @@ WARNING = -13
 NAMELENGTH = 50
 
 # length for dir
-DIRLENGTH = 30
+DIRLENGTH = 40
 
 # length for id
-IDLENGTH = 30
+IDLENGTH = 40
 
 # length for permutation
-PLENGTH = 30
+PLENGTH = 40
 
 # length for index
-ILENGTH = 30
+ILENGTH = 40
 
 # length for password
-PWDLENGTH = 30
+PWDLENGTH = 40
 
 DICTIONARY = 0
 
