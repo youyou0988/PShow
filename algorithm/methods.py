@@ -340,6 +340,15 @@ class Switch:
     @staticmethod
     def index(n, current):
         #TODO
+##        if(n==2):
+##            if(current=='12'):
+##                idx = '0'
+##                ans = 0
+##                return idx,ans
+##            if(current=='21'):
+##                idx = '1'
+##                ans = 1
+##                return idx,ans
         ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
@@ -368,7 +377,10 @@ class Switch:
         idx = ''
         for i in range(n):
             num[i] = 0
-        num[1] = 1
+        val = current.find('2')
+        for k in range(val,n):
+            if(current[k]<current[val]): num[1]=num[1]+1
+        
         for j in range(2,n):
             ##val = s.find(str(j+1))
             val = current.find(ls[j])
@@ -397,6 +409,15 @@ class Switch:
     def permutation(n, index):
         #TODO
         index = int(index)
+        if(n==2):
+            if(index==0):
+                idx = '0'
+                ans = '12'
+                return idx,ans
+            if(index==1):
+                idx = '1'
+                ans = '21'
+                return idx,ans
         ls = ['1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         lsn = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f','g','h','i','j','k','l','m','n']
         const = [0,1,2,6,24,120,720,5040,40320,362800,3628000,39908000,478896000,6225648000,87159072000,1307386080000,20918177280000,355609013760000,6400962247680000,121618282705920000,2432365654118400000]
@@ -434,10 +455,10 @@ class Switch:
                 if(num[i-1]%2==0):
                    res[pos[num[i]]]=i+1
                    pos.remove(pos[num[i]])
-            if(num[1]==0):
+        if(num[1]==0):
                 res[pos[0]]=2
                 res[pos[1]]=1
-            if(num[1]==1):
+        if(num[1]==1):
                 res[pos[0]]=1
                 res[pos[1]]=2
         for i in range(1,n):
