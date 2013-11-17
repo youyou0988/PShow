@@ -17,10 +17,20 @@ function timedMsg()
  }
 
 $(document).ready(function(){
-	//document.getElementById('btn_p2index').onclick = function(){
-		//document.location.reload();
-		//setTimeout($('#test01').slideDown(), 6000);
-	//};
+	document.getElementById('btn_p2index').onclick = function(){
+		alert("h");
+		window.onload=function(){
+			alert("haha");//不执行
+			$('#test01').slideDown();//不执行
+		};
+		if (document.readyState && document.readyState == 'complete') {
+				alert("ha");//没有等待表单刷新完就执行了
+				$('#test01').slideDown();//瞬间显示，表单刷新完之后消失
+				//因为原来的css设为了不显示
+		} else {
+			setTimeout("alert('haha');", 10);
+		}
+	};
 	
 	
 	 //$('.set_readonly').find('div').find('div').find('input').attr('readonly','readonly');

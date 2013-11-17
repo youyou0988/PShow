@@ -246,7 +246,7 @@ for(i=0;i<=zDivCount;i++)
 <div class="form-signin">
 	<div class="row">
 		<div class="col-md-6">
-			<form method='POST' action="/show/action/" onsubmit="timedMsg()">
+			<form method='POST' action="/show/action/" >
 			{% csrf_token %}
 			<table class="table">
 				<tr>
@@ -255,7 +255,7 @@ for(i=0;i<=zDivCount;i++)
 					<td>{{ piform.index|bootstrap }}</td>
 				</tr>
 				<tr>
-					<td><input type="submit" name="index_p" value="P2Index" class="btn btn-info" id="btn_p2index"/ ></td>
+					<td><input type="submit" name="index_p" value="P2Index" class="btn btn-info" id="btn_p2index" /></td>
 					<td></td>
 					<td><input type="submit" name="permutation_p" value="Index2P" class="btn btn-info"/></td>
 				</tr>
@@ -271,7 +271,7 @@ for(i=0;i<=zDivCount;i++)
 </form> -->
 		</div>
 		<div class="col-md-6">
-			<div id="test01" >{{ piform.oldpermutation|bootstrap }}</div>
+			<div id="test01"  style="display:none">{{ piform.oldpermutation|bootstrap }}</div>
 			<div id="test02">{{ piform.oldmiddle|bootstrap }}</div>
 			<div id="test03">{{ piform.oldindex|bootstrap }}</div>
 		</div>
